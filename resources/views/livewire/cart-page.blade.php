@@ -1,4 +1,4 @@
-<div class="w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
+<div class="w-full bg-gradient-to-r from-orange-200 to-red-200 py-10 px-4 sm:px-6 lg:px-8 mx-auto">
     <div class="container mx-auto px-4">
       <h1 class="text-2xl font-semibold mb-4">Shopping Cart</h1>
       <div class="flex flex-col md:flex-row gap-4">
@@ -58,7 +58,7 @@
               <span class="font-semibold">Total</span>
               <span class="font-semibold">$21.98</span>
             </div>
-            <button class="bg-blue-500 text-white py-2 px-4 rounded-lg mt-4 w-full">Checkout</button>
+            <button class="bg-orange-500 text-white py-2 px-4 rounded-lg mt-4 w-full">Checkout</button>
           </div>
         </div>
       </div>
