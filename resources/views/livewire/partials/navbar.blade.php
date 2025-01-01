@@ -5,7 +5,7 @@
             <div class="flex items-center justify-between">
                 <a class="flex items-center flex-none text-xl font-semibold text-gray-900 dark:text-white dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                     href="/" aria-label="Brand">
-                    <img src="images/logo.png" alt="Logo Infinity Shop" class="h-8 w-8 mr-2">
+                    {{-- <img src="images/logo.png" alt="Logo Infinity Shop" class="h-8 w-8 mr-2"> --}}
                     <span class="hidden md:inline-block">Infinity Shop</span>
                 </a>
                 <div class="md:hidden">
@@ -63,7 +63,7 @@
                             </svg>
                             <span class="mr-1">Cart</span>
                             <span
-                                class="py-0.5 px-1.5 rounded-full text-xs font-medium bg-orange-50 border border-orange-200 text-orange-600">4</span>
+                                class="py-0.5 px-1.5 rounded-full text-xs font-medium bg-orange-50 border border-orange-200 text-orange-600">{{ $total_count }}</span>
                         </a>
 
                         <div class="pt-3 md:pt-0">
@@ -80,7 +80,7 @@
                             </a>
                         </div>
 
-                        <div
+                        {{-- <div
                             class="hs-dropdown [--strategy:static] md:[--strategy:fixed] [--adaptive:none] md:[--trigger:hover] md:py-4">
                             <button type="button"
                                 class="flex items-center w-full text-gray-900 hover:text-gray-600 font-medium dark:text-gray-100 dark:hover:text-gray-300">
@@ -106,10 +106,10 @@
                                     Logout
                                 </a>
                             </div> --}}
-                        </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </nav>
 </header>

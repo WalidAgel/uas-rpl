@@ -6,7 +6,7 @@
                 <a class="group flex items-center bg-white border shadow-sm rounded-xl hover:shadow-md transition
                 dark:bg-slate-900 dark:border-gray-800 dark:focus:outline-none dark:focus:ring-1
                 dark:focus:ring-gray-600"
-                    href="#" wire:key="{{ $category->id }}">
+                    href="/products?selected_categories[0]= {{ $category->id}}" wire:key="{{ $category->id }}">
                     <div class="p-4 md:p-5 flex flex-1 items-center">
                         <img class="h-[5rem] w-[5rem] rounded-full" src="{{ url('storage', $category->image) }}"
                             alt="{{ $category->name }}">
