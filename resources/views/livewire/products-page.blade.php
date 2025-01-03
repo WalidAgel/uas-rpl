@@ -67,13 +67,13 @@
                         <div>
                             <div class="font-semibold">{{ Number::currency($price_range, 'IDR') }}</div>
                             <input type="range" wire:model.live='price_range'
-                                class="w-full h-1 mb-4 bg-blue-100 rounded appearance-none cursor-pointer"
+                                class="w-full h-1 mb-4 bg-red-100 rounded appearance-none cursor-pointer"
                                 max="50000000" value="50000000" step="100000">
                             <div class="flex justify-between ">
                                 <span
-                                    class="inline-block text-lg font-bold text-blue-400 ">{{ Number::currency(10000, 'IDR') }}</span>
+                                    class="inline-block text-lg font-bold text-red-400 ">{{ Number::currency(10000, 'IDR') }}</span>
                                 <span
-                                    class="inline-block text-lg font-bold text-blue-400 ">{{ Number::currency(50000000, 'IDR') }}</span>
+                                    class="inline-block text-lg font-bold text-red-400 ">{{ Number::currency(50000000, 'IDR') }}</span>
                             </div>
                         </div>
                     </div>

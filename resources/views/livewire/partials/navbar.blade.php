@@ -39,22 +39,22 @@
                         class="flex flex-col gap-x-0 mt-5 divide-y divide-dashed divide-gray-200/50 md:flex-row md:items-center md:justify-end md:gap-x-7 md:mt-0 md:ps-7 md:divide-y-0 md:divide-solid dark:divide-gray-700/50">
 
                         <a wire:navigate
-                            class="font-medium {{ request()->is('/') ? 'text-blue-600' : 'text-gray-900' }} py-3 md:py-6 dark:text-orange-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                            class="font-medium {{ request()->is('/') ? 'text-red-600' : 'text-gray-900' }} py-3 md:py-6 dark:text-orange-500 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                             href="/" aria-current="page">Home</a>
 
                         <a wire:navigate
-                            class="font-medium  {{ request()->is('categories') ? 'text-blue-600' : 'text-gray-900' }} hover:text-gray-600 py-3 md:py-6 dark:text-gray-100 dark:hover:text-gray-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                            class="font-medium  {{ request()->is('categories') ? 'text-red-600' : 'text-gray-900' }} hover:text-gray-600 py-3 md:py-6 dark:text-gray-100 dark:hover:text-gray-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                             href="/categories">
                             Categories
                         </a>
 
                         <a wire:navigate
-                            class="font-medium  {{ request()->is('products') ? 'text-blue-600' : 'text-gray-900' }} hover:text-gray-600 py-3 md:py-6 dark:text-gray-100 dark:hover:text-gray-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                            class="font-medium  {{ request()->is('products') ? 'text-red-600' : 'text-gray-900' }} hover:text-gray-600 py-3 md:py-6 dark:text-gray-100 dark:hover:text-gray-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                             href="/products">
                             Products
                         </a>
 
-                        <a class="font-medium flex items-center  {{ request()->is('cart') ? 'text-blue-600' : 'text-gray-900' }} hover:text-gray-600 py-3 md:py-6 dark:text-gray-100 dark:hover:text-gray-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                        <a class="font-medium flex items-center {{ request()->is('cart') ? 'text-red-600' : 'text-gray-900' }} hover:text-gray-600 py-3 md:py-6 dark:text-gray-100 dark:hover:text-gray-300 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                             href="/cart">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke-width="1.5" stroke="currentColor" class="flex-shrink-0 w-5 h-5 mr-1">
@@ -63,53 +63,60 @@
                             </svg>
                             <span class="mr-1">Cart</span>
                             <span
-                                class="py-0.5 px-1.5 rounded-full text-xs font-medium bg-orange-50 border border-orange-200 text-orange-600">{{ $total_count }}</span>
+                                class="py-0.5 px-1.5 rounded-full text-xs font-medium bg-orange-50 border border-orange-200 text-orange-600">
+                                {{ is_numeric($total_count) ? $total_count : 0 }}
+                            </span>
                         </a>
 
-                        <div class="pt-3 md:pt-0">
-                            <a wire:navigate
-                                class="py-2.5 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-orange-600 text-white hover:bg-orange-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                                href="/login">
-                                <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24"
-                                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-                                    <circle cx="12" cy="7" r="4" />
-                                </svg>
-                                Log in
-                            </a>
-                        </div>
+                        @guest
+                            <div class="pt-3 md:pt-0">
+                                <a wire:navigate
+                                    class="py-2.5 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-orange-600 text-white hover:bg-orange-700 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                                    href="/login">
+                                    <svg class="flex-shrink-0 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+                                        <circle cx="12" cy="7" r="4" />
+                                    </svg>
+                                    Log in
+                                </a>
+                            </div>
+                        @endguest
 
-                        {{-- <div
-                            class="hs-dropdown [--strategy:static] md:[--strategy:fixed] [--adaptive:none] md:[--trigger:hover] md:py-4">
-                            <button type="button"
-                                class="flex items-center w-full text-gray-900 hover:text-gray-600 font-medium dark:text-gray-100 dark:hover:text-gray-300">
-                                User Name
-                                <svg class="ms-2 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24"
-                                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="m6 9 6 6 6-6" />
-                                </svg>
-                            </button>
+                        @auth
+                            <div
+                                class="hs-dropdown [--strategy:static] md:[--strategy:fixed] [--adaptive:none] md:[--trigger:hover] md:py-4">
+                                <button type="button"
+                                    class="flex items-center w-full text-gray-900 hover:text-gray-600 font-medium dark:text-gray-100 dark:hover:text-gray-300">
+                                    {{ auth()->user()->name}}
+                                    <svg class="ms-2 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="m6 9 6 6 6-6" />
+                                    </svg>
+                                </button>
 
-                            {{-- <div class="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] md:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 md:w-48 hidden z-10 bg-white/70 backdrop-blur-md md:shadow-md rounded-lg p-2 dark:bg-gray-800/70 md:dark:border dark:border-gray-700/50 dark:divide-gray-700/50 before:absolute top-full md:border before:-top-5 before:start-0 before:w-full before:h-5">
-                                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-white/50 focus:ring-2 focus:ring-orange-500 dark:text-gray-300 dark:hover:bg-gray-700/50 dark:hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                                    href="#">
-                                    My Orders
-                                </a>
-                                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-white/50 focus:ring-2 focus:ring-orange-500 dark:text-gray-300 dark:hover:bg-gray-700/50 dark:hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                                    href="#">
-                                    My Account
-                                </a>
-                                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-white/50 focus:ring-2 focus:ring-orange-500 dark:text-gray-300 dark:hover:bg-gray-700/50 dark:hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-                                    href="#">
-                                    Logout
-                                </a>
-                            </div> --}}
+                                <div
+                                    class="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] md:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 md:w-48 hidden z-10 bg-white/70 backdrop-blur-md md:shadow-md rounded-lg p-2 dark:bg-gray-800/70 md:dark:border dark:border-gray-700/50 dark:divide-gray-700/50 before:absolute top-full md:border before:-top-5 before:start-0 before:w-full before:h-5">
+                                    <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-white/50 focus:ring-2 focus:ring-orange-500 dark:text-gray-300 dark:hover:bg-gray-700/50 dark:hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                                        href="#">
+                                        My Orders
+                                    </a>
+                                    <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-white/50 focus:ring-2 focus:ring-orange-500 dark:text-gray-300 dark:hover:bg-gray-700/50 dark:hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                                        href="#">
+                                        My Account
+                                    </a>
+                                    <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-white/50 focus:ring-2 focus:ring-orange-500 dark:text-gray-300 dark:hover:bg-gray-700/50 dark:hover:text-gray-200 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                                        href="/logout">
+                                        Logout
+                                    </a>
+                                </div>
+                            </div>
+                        @endauth
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     </nav>
 </header>

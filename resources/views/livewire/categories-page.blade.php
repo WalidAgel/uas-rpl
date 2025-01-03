@@ -12,14 +12,14 @@
                             alt="{{ $category->name }}">
                         <div class="ms-3">
                             <h3
-                                class="group-hover:text-blue-600 text-2xl font-semibold text-gray-800
+                                class="group-hover:text-red-600 text-2xl font-semibold text-gray-800
                             dark:group-hover:text-gray-400 dark:text-gray-200">
                                 {{ $category->name }}
                             </h3>
                         </div>
                     </div>
                     <div class="p-4">
-                        <svg class="flex-shrink-0 w-6 h-6 text-gray-500 group-hover:text-blue-600
+                        <svg class="flex-shrink-0 w-6 h-6 text-gray-500 group-hover:text-red-600
                         dark:group-hover:text-gray-400 dark:text-gray-200"
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
